@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Adnan Jamil ki official website. Yahan meri services aur mere baare mein maloomat hasil karein.">
+    <title>Adnan Jamil - Official Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #17212b;
+            --muted: #61707d;
+            --paper: #f7faf8;
+            --white: #ffffff;
+            --line: #dce7e3;
+            --teal: #087f73;
+            --teal-dark: #075c55;
+            --mint: #d9f2e8;
+            --coral: #f17c61;
+            --shadow: 0 18px 45px rgba(23, 33, 43, 0.09);
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--paper);
+            font-family: "DM Sans", sans-serif;
+            line-height: 1.7;
+        }
+
+        a { color: inherit; }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(247, 250, 248, 0.9);
+            border-bottom: 1px solid rgba(220, 231, 227, 0.8);
+            backdrop-filter: blur(14px);
+        }
+
+        nav {
+            width: min(1120px, calc(100% - 40px));
+            min-height: 76px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        nav > a {
+            color: var(--teal-dark);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        nav > a::before {
+            content: "AJ";
+            display: inline-grid;
+            width: 34px;
+            height: 34px;
+            margin-right: 9px;
+            color: var(--white);
+            background: var(--teal);
+            border-radius: 10px;
+            place-items: center;
+            font-size: .72rem;
+            vertical-align: middle;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 6px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        nav li a {
+            display: block;
+            padding: 8px 14px;
+            color: var(--muted);
+            font-size: .92rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: color .2s ease, background .2s ease;
+        }
+
+        nav li a:hover, nav li a:focus-visible {
+            color: var(--teal-dark);
+            background: var(--mint);
+            outline: none;
+        }
+
+        main { overflow: hidden; }
+
+        section {
+            width: min(1120px, calc(100% - 40px));
+            margin: auto;
+            padding: 92px 0;
+        }
+
+        #home {
+            position: relative;
+            min-height: 590px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        #home::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 80px;
+            right: -170px;
+            width: 560px;
+            height: 560px;
+            background: var(--mint);
+            border-radius: 50%;
+        }
+
+        #home::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            right: 72px;
+            bottom: 120px;
+            width: 95px;
+            height: 95px;
+            border: 18px solid rgba(241, 124, 97, .25);
+            border-radius: 50%;
+        }
+
+        #home h1 {
+            max-width: 740px;
+            margin: 0 0 20px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(2.6rem, 6vw, 5rem);
+            line-height: 1.05;
+            letter-spacing: -.04em;
+        }
+
+        #home h1::first-line { color: var(--teal-dark); }
+
+        #home p {
+            max-width: 560px;
+            margin: 0 0 32px;
+            color: var(--muted);
+            font-size: 1.15rem;
+        }
+
+        #home > a, button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            padding: 12px 23px;
+            color: var(--white);
+            background: var(--teal);
+            border: 0;
+            border-radius: 8px;
+            box-shadow: 0 10px 22px rgba(8, 127, 115, .2);
+            font: inherit;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+        }
+
+        #home > a:hover, button:hover {
+            background: var(--teal-dark);
+            box-shadow: 0 13px 26px rgba(8, 127, 115, .28);
+            transform: translateY(-2px);
+        }
+
+        section h2 {
+            margin: 0 0 18px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(1.9rem, 4vw, 2.8rem);
+            line-height: 1.15;
+            letter-spacing: -.03em;
+        }
+
+        #about {
+            max-width: 760px;
+            margin-left: max(20px, calc((100% - 1120px) / 2));
+            padding-top: 30px;
+        }
+
+        #about p { margin: 0; color: var(--muted); font-size: 1.08rem; }
+
+        #services { padding-top: 64px; }
+
+        #services ul {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            padding: 0;
+            margin: 30px 0 0;
+            list-style: none;
+        }
+
+        #services li {
+            min-height: 170px;
+            padding: 28px;
+            display: flex;
+            align-items: flex-end;
+            color: var(--ink);
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            transition: transform .2s ease, border-color .2s ease;
+        }
+
+        #services li::before {
+            content: "0" counter(service);
+            align-self: flex-start;
+            color: var(--coral);
+            font-family: "DM Sans", sans-serif;
+            font-size: .78rem;
+            font-weight: 700;
+        }
+
+        #services ul { counter-reset: service; }
+        #services li { counter-increment: service; flex-direction: column; }
+        #services li:hover { border-color: var(--teal); transform: translateY(-5px); }
+
+        #contact {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: clamp(35px, 8vw, 110px);
+            align-items: start;
+            padding-bottom: 100px;
+        }
+
+        #contact > h2 { margin-top: 10px; }
+
+        form {
+            padding: 30px;
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        form p { margin: 0 0 18px; }
+        form p:last-of-type { margin-bottom: 22px; }
+
+        label {
+            display: inline-block;
+            margin-bottom: 7px;
+            color: var(--ink);
+            font-size: .9rem;
+            font-weight: 700;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 13px 14px;
+            color: var(--ink);
+            background: #fbfdfc;
+            border: 1px solid var(--line);
+            border-radius: 7px;
+            font: inherit;
+            transition: border-color .2s ease, box-shadow .2s ease;
+        }
+
+        textarea { resize: vertical; min-height: 130px; }
+        input:focus, textarea:focus, select:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(8, 127, 115, .12); outline: none; }
+
+        .form-section {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .form-section:last-of-type { border-bottom: none; margin-bottom: 24px; }
+
+        .form-section h3 {
+            margin: 0 0 20px;
+            color: var(--teal-dark);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+
+        .form-row.full { grid-template-columns: 1fr; }
+
+        .form-row p { margin: 0; }
+
+        .checkbox-group, .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 12px 0;
+        }
+
+        .checkbox-group label, .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .checkbox-group input[type="checkbox"],
+        .radio-group input[type="radio"] {
+            width: auto;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .confirmation-section {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 2px solid var(--line);
+        }
+
+        .confirmation-section label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .confirmation-section input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .success-message {
+            display: none;
+            padding: 20px;
+            margin-bottom: 20px;
+            color: #155724;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .success-message.show { display: block; }
+
+        .form-description {
+            margin: -8px 0 24px;
+            color: var(--muted);
+            font-size: .95rem;
+            line-height: 1.6;
+        }
+
+        .required-mark { color: var(--coral); }
+
+        .client-info-toggle {
+            display: block;
+            width: 100%;
+            min-height: 50px;
+            padding: 12px 23px;
+            margin-bottom: 28px;
+            color: var(--white);
+            background: var(--teal);
+            border: 0;
+            border-radius: 8px;
+            box-shadow: 0 10px 22px rgba(8, 127, 115, .2);
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+        }
+
+        .client-info-toggle:hover {
+            background: var(--teal-dark);
+            box-shadow: 0 13px 26px rgba(8, 127, 115, .28);
+            transform: translateY(-2px);
+        }
+
+        .client-info-toggle:active {
+            transform: translateY(0);
+        }
+
+        .payment-info-toggle {
+            display: block;
+            width: 100%;
+            min-height: 50px;
+            padding: 12px 23px;
+            margin-bottom: 28px;
+            color: var(--white);
+            background: var(--coral);
+            border: 0;
+            border-radius: 8px;
+            box-shadow: 0 10px 22px rgba(241, 124, 97, .2);
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+        }
+
+        .payment-info-toggle:hover {
+            background: #e06344;
+            box-shadow: 0 13px 26px rgba(241, 124, 97, .28);
+            transform: translateY(-2px);
+        }
+
+        .payment-info-toggle:active {
+            transform: translateY(0);
+        }
+
+        .payment-info-section {
+            background: linear-gradient(135deg, rgba(8, 127, 115, 0.05) 0%, rgba(241, 124, 97, 0.05) 100%);
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            margin-bottom: 28px;
+        }
+
+        .payment-details-box {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--coral);
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(23, 33, 43, 0.04);
+        }
+
+        .payment-details-box h4 {
+            margin: 0 0 16px;
+            color: var(--ink);
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .payment-detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .payment-detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .payment-detail-label {
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .payment-detail-value {
+            color: var(--ink);
+            font-weight: 700;
+            font-size: 1.05rem;
+            word-break: break-word;
+        }
+
+        .payment-instructions {
+            background: #fffaeb;
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid #f59e0b;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--ink);
+        }
+
+        .payment-form-section {
+            margin-top: 24px;
+        }
+
+        .payment-form-section h3 {
+            margin: 0 0 20px;
+            color: var(--teal-dark);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        @media (max-width: 700px) {
+            .payment-info-toggle { min-height: 48px; padding: 10px 16px; font-size: 1rem; }
+            .payment-info-section { padding: 20px; }
+            .payment-details-box { padding: 16px; }
+            .payment-detail-row { flex-direction: column; align-items: flex-start; }
+            .payment-detail-value { margin-top: 8px; }
+        }
+
+        footer {
+            padding: 28px 20px;
+            color: #d7eeea;
+            background: var(--teal-dark);
+            text-align: center;
+        }
+
+        footer p { margin: 0; font-size: .9rem; }
+
+        @media (max-width: 700px) {
+            nav { width: min(100% - 28px, 1120px); min-height: 68px; align-items: flex-start; padding: 14px 0; flex-direction: column; gap: 8px; }
+            nav > a { font-size: 1rem; }
+            nav ul { width: 100%; justify-content: space-between; gap: 0; }
+            nav li a { padding: 4px 7px; font-size: .8rem; }
+            section { width: min(100% - 28px, 1120px); padding: 64px 0; }
+            #home { min-height: 530px; }
+            #home::after { top: 170px; right: -270px; width: 470px; height: 470px; }
+            #home::before { right: 20px; bottom: 90px; width: 62px; height: 62px; border-width: 12px; }
+            #home h1 { font-size: clamp(2.35rem, 12vw, 3.6rem); }
+            #home p { font-size: 1rem; }
+            #services ul, #contact { grid-template-columns: 1fr; }
+            #services li { min-height: 135px; }
+            #contact { gap: 24px; padding-top: 55px; }
+            form { padding: 22px; }
+            .form-row { grid-template-columns: 1fr; gap: 12px; }
+            .form-row p { margin-bottom: 16px; }
+            .form-section { margin-bottom: 24px; padding-bottom: 20px; }
+            .client-info-toggle { min-height: 48px; padding: 10px 16px; margin-bottom: 20px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav aria-label="Mukhya navigation">
+            <a href="index.html">Adnan Jamil - Official Website</a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="sr-only">Menu kholen</span>
+            </button>
+            <ul id="main-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1>Welcome to Adnan Official Website</h1>
+            <p>Explore my professional services and learn more about my work and experience.</p>
+            <a href="#contact">Get Started</a>
+        </section>
+
+        <section id="about">
+            <h2>About Me and My Work</h2>
+            <p>
+                I am Adnan Jamil. On this website, you can explore my work, experience, and professional services in detail. I specialize in creating high-quality digital solutions tailored to your business needs.
+            </p>
+        </section>
+
+        <section id="services">
+            <h2>My Services</h2>
+            <ul>
+                <li>Website Design</li>
+                <li>Web Development</li>
+                <li>Content Creation</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Start Your Project</h2>
+            <form action="https://formspree.io/f/xkjwdagw" method="post">
+                <div class="success-message"></div>
+
+                <p class="form-description">Tell us about your project and requirements. Submit the form below and we will review your information.</p>
+
+                <button type="button" id="toggleClientInfo" class="client-info-toggle">Submit Information</button>
+
+                <!-- Client Information -->
+                <div id="clientInfoSection" class="form-section" style="display: none;">
+                    <h3>Client Information</h3>
+                    
+                    <div class="form-row">
+                        <p>
+                            <label for="fullName">Full Name <span class="required-mark">*</span></label><br>
+                            <input type="text" id="fullName" name="full_name" placeholder="Your full name" required>
+                        </p>
+                        <p>
+                            <label for="email">Email Address <span class="required-mark">*</span></label><br>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                        </p>
+                    </div>
+
+                    <div class="form-row">
+                        <p>
+                            <label for="phone">Phone / WhatsApp Number</label><br>
+                            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                        </p>
+                        <p>
+                            <label for="businessName">Business / Brand Name <span class="required-mark">*</span></label><br>
+                            <input type="text" id="businessName" name="business_name" placeholder="Your business name" required>
+                        </p>
+                    </div>
+
+                    <div class="form-row full">
+                        <p>
+                            <label for="country">Country <span class="required-mark">*</span></label><br>
+                            <input type="text" id="country" name="country" placeholder="Your country" required>
+                        </p>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Payment Information -->
+                <button type="button" id="togglePaymentInfo" class="payment-info-toggle">Payment Information</button>
+                
+                <div id="paymentInfoSection" class="payment-info-section" style="display: none;">
+                    <div class="payment-details-box">
+                        <h4>Payment Details</h4>
+                        <div class="payment-detail-row">
+                            <span class="payment-detail-label">Payment Method:</span>
+                            <span class="payment-detail-value">JazzCash</span>
+                        </div>
+                        <div class="payment-detail-row">
+                            <span class="payment-detail-label">Account Name:</span>
+                            <span class="payment-detail-value">Jamil</span>
+                        </div>
+                        <div class="payment-detail-row">
+                            <span class="payment-detail-label">JazzCash Number:</span>
+                            <span class="payment-detail-value">03034185989</span>
+                        </div>
+                    </div>
+
+                    <div class="payment-instructions">
+                        <strong>Instructions:</strong><br>
+                        Please send the agreed amount to the JazzCash account above. After making the payment, enter your transaction details below.
+                    </div>
+
+                    <div class="payment-form-section">
+                        <h3>Payment Details <span class="required-mark">*</span></h3>
+                        
+                        <div class="form-row">
+                            <p>
+                                <label for="transactionId">Transaction ID / Reference Number <span class="required-mark">*</span></label><br>
+                                <input type="text" id="transactionId" name="payment_transaction_id" placeholder="Enter your transaction ID" required>
+                            </p>
+                            <p>
+                                <label for="paymentAmount">Payment Amount <span class="required-mark">*</span></label><br>
+                                <input type="number" id="paymentAmount" name="payment_amount" placeholder="Enter the amount" step="0.01" min="0" required>
+                            </p>
+                        </div>
+
+                        <div class="form-row">
+                            <p>
+                                <label for="paymentDate">Payment Date <span class="required-mark">*</span></label><br>
+                                <input type="date" id="paymentDate" name="payment_date" required>
+                            </p>
+                            <p>
+                                <label for="paymentScreenshot">Payment Screenshot</label><br>
+                                <input type="text" id="paymentScreenshot" name="payment_screenshot" placeholder="Paste screenshot URL or describe how proof is provided">
+                            </p>
+                        </div>
+                    </div>
+
+                    <button type="button" id="submitPaymentDetails" class="client-info-toggle" style="background: var(--coral); box-shadow: 0 10px 22px rgba(241, 124, 97, .2); margin-top: 16px;">Submit Payment Details</button>
+                </div>
+
+                <!-- Required Service -->
+                <div class="form-section">
+                    <h3>Select the Required Service <span class="required-mark">*</span></h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="service" value="Website Design"> Website Design</label>
+                        <label><input type="checkbox" name="service" value="Web Development"> Web Development</label>
+                        <label><input type="checkbox" name="service" value="Content Creation"> Content Creation</label>
+                        <label><input type="checkbox" name="service" value="Website Redesign"> Website Redesign</label>
+                        <label><input type="checkbox" name="service" value="Other"> Other</label>
+                    </div>
+                </div>
+
+                <!-- Website Requirements -->
+                <div class="form-section">
+                    <h3>Website Requirements</h3>
+
+                    <p>
+                        <label for="websiteType">Website Type</label><br>
+                        <select id="websiteType" name="website_type">
+                            <option value="">Select a website type...</option>
+                            <option value="Business Website">Business Website</option>
+                            <option value="Portfolio">Portfolio</option>
+                            <option value="E-commerce">E-commerce</option>
+                            <option value="Blog">Blog</option>
+                            <option value="Landing Page">Landing Page</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label>Required Pages</label>
+                        <div class="checkbox-group" style="margin-top: 10px;">
+                            <label><input type="checkbox" name="required_pages" value="Home"> Home</label>
+                            <label><input type="checkbox" name="required_pages" value="About"> About</label>
+                            <label><input type="checkbox" name="required_pages" value="Services"> Services</label>
+                            <label><input type="checkbox" name="required_pages" value="Products"> Products</label>
+                            <label><input type="checkbox" name="required_pages" value="Portfolio"> Portfolio</label>
+                            <label><input type="checkbox" name="required_pages" value="Blog"> Blog</label>
+                            <label><input type="checkbox" name="required_pages" value="Contact"> Contact</label>
+                            <label><input type="checkbox" name="required_pages" value="Other"> Other</label>
+                        </div>
+                    </p>
+
+                    <div class="form-row">
+                        <p>
+                            <label>Do you already have a domain?</label>
+                            <div class="radio-group" style="margin-top: 10px;">
+                                <label><input type="radio" name="has_domain" value="Yes"> Yes</label>
+                                <label><input type="radio" name="has_domain" value="No"> No</label>
+                                <label><input type="radio" name="has_domain" value="Not sure"> Not sure</label>
+                            </div>
+                        </p>
+                        <p>
+                            <label>Do you already have hosting?</label>
+                            <div class="radio-group" style="margin-top: 10px;">
+                                <label><input type="radio" name="has_hosting" value="Yes"> Yes</label>
+                                <label><input type="radio" name="has_hosting" value="No"> No</label>
+                                <label><input type="radio" name="has_hosting" value="Not sure"> Not sure</label>
+                            </div>
+                        </p>
+                    </div>
+
+                    <div class="form-row">
+                        <p>
+                            <label>Do you have a logo?</label>
+                            <div class="radio-group" style="margin-top: 10px;">
+                                <label><input type="radio" name="has_logo" value="Yes"> Yes</label>
+                                <label><input type="radio" name="has_logo" value="No"> No</label>
+                            </div>
+                        </p>
+                        <p>
+                            <label>Do you have website images/content?</label>
+                            <div class="radio-group" style="margin-top: 10px;">
+                                <label><input type="radio" name="has_content" value="Yes"> Yes</label>
+                                <label><input type="radio" name="has_content" value="No"> No</label>
+                                <label><input type="radio" name="has_content" value="Some of them"> Some of them</label>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project Details -->
+                <div class="form-section">
+                    <h3>Project Details</h3>
+
+                    <div class="form-row full">
+                        <p>
+                            <label for="projectDescription">Describe Your Project and Requirements <span class="required-mark">*</span></label><br>
+                            <textarea id="projectDescription" name="project_description" placeholder="Tell us about your project, goals, features, design preferences, and any specific requirements." required></textarea>
+                        </p>
+                    </div>
+
+                    <div class="form-row full">
+                        <p>
+                            <label for="referenceWebsite">Reference Website or Example</label><br>
+                            <textarea id="referenceWebsite" name="reference_website" placeholder="Paste a website link or describe an example you like." style="min-height: 80px;"></textarea>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Budget and Timeline -->
+                <div class="form-section">
+                    <h3>Budget and Timeline</h3>
+
+                    <div class="form-row">
+                        <p>
+                            <label for="budget">Estimated Budget</label><br>
+                            <select id="budget" name="estimated_budget">
+                                <option value="">Select a budget range...</option>
+                                <option value="Not decided">Not decided</option>
+                                <option value="Under $100">Under $100</option>
+                                <option value="$100–$300">$100–$300</option>
+                                <option value="$300–$500">$300–$500</option>
+                                <option value="$500+">$500+</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="timeline">Desired Completion Time</label><br>
+                            <select id="timeline" name="completion_timeline">
+                                <option value="">Select a timeline...</option>
+                                <option value="As soon as possible">As soon as possible</option>
+                                <option value="Within 1 week">Within 1 week</option>
+                                <option value="Within 2 weeks">Within 2 weeks</option>
+                                <option value="Within 1 month">Within 1 month</option>
+                                <option value="Flexible">Flexible</option>
+                            </select>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Final Confirmation -->
+                <div class="confirmation-section">
+                    <label>
+                        <input type="checkbox" id="confirmation" name="confirmation" required>
+                        I confirm that the information provided above is accurate. <span class="required-mark">*</span>
+                    </label>
+                </div>
+
+                <button type="submit" style="width: 100%; margin-top: 28px;">Submit Project Request</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Adnan Jamil. All rights reserved.</p>
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+</html>
