@@ -162,7 +162,7 @@
             font-size: 1.15rem;
         }
 
-        #home > a, button {
+        #home > a, .home-actions a, button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -180,10 +180,16 @@
             transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
         }
 
-        #home > a:hover, button:hover {
+        #home > a:hover, .home-actions a:hover, button:hover {
             background: var(--teal-dark);
             box-shadow: 0 13px 26px rgba(8, 127, 115, .28);
             transform: translateY(-2px);
+        }
+
+        .home-actions {
+            display: flex;
+            align-items: center;
+            gap: 18px;
         }
 
         section h2 {
@@ -241,6 +247,108 @@
         #services ul { counter-reset: service; }
         #services li { counter-increment: service; flex-direction: column; }
         #services li:hover { border-color: var(--teal); transform: translateY(-5px); }
+
+        #demo {
+            padding-top: 72px;
+            padding-bottom: 82px;
+        }
+
+        .demo-intro {
+            max-width: 620px;
+            margin-bottom: 30px;
+        }
+
+        .demo-intro p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .demo-card {
+            position: relative;
+            min-height: 275px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .demo-card::after {
+            content: "";
+            position: absolute;
+            width: 135px;
+            height: 135px;
+            right: -42px;
+            top: -42px;
+            background: var(--mint);
+            border-radius: 50%;
+        }
+
+        .demo-number {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 38px;
+            color: var(--coral);
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+        }
+
+        .demo-card h3 {
+            position: relative;
+            z-index: 1;
+            margin: 0 0 10px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.55rem;
+            line-height: 1.2;
+        }
+
+        .demo-card p {
+            position: relative;
+            z-index: 1;
+            max-width: 500px;
+            margin: 0 0 24px;
+            color: var(--muted);
+        }
+
+        .demo-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            padding: 12px 23px;
+            color: var(--white);
+            background: var(--teal);
+            border-radius: 8px;
+            box-shadow: 0 10px 22px rgba(8, 127, 115, .2);
+            font-weight: 700;
+            text-decoration: none;
+            transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+        }
+
+        .demo-card .demo-link {
+            position: relative;
+            z-index: 1;
+            margin-top: auto;
+        }
+
+        .demo-link:hover, .demo-link:focus-visible {
+            background: var(--teal-dark);
+            box-shadow: 0 13px 26px rgba(8, 127, 115, .28);
+            outline: none;
+            transform: translateY(-2px);
+        }
 
         #contact {
             display: grid;
@@ -577,8 +685,11 @@
             #home::before { right: 20px; bottom: 90px; width: 62px; height: 62px; border-width: 12px; }
             #home h1 { font-size: clamp(2.35rem, 12vw, 3.6rem); }
             #home p { font-size: 1rem; }
+            .home-actions { flex-direction: column; align-items: stretch; gap: 14px; }
             #services ul, #contact { grid-template-columns: 1fr; }
             #services li { min-height: 135px; }
+            #demo { padding-top: 56px; padding-bottom: 64px; }
+            .demo-card { min-height: 250px; padding: 24px; }
             #contact { gap: 24px; padding-top: 55px; }
             .contact-intro { margin-top: 0; }
             form { padding: 22px; }
@@ -603,6 +714,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#demo">Demo</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -612,7 +724,10 @@
         <section id="home">
             <h1>Welcome to Adnan Official Website</h1>
             <p>Explore my professional services and learn more about my work and experience.</p>
-            <a href="#contact">Get Started</a>
+            <div class="home-actions">
+                <a href="#contact">Get Started</a>
+                <a class="demo-link home-demo-link" href="#demo">View My Demos</a>
+            </div>
         </section>
 
         <section id="about">
@@ -629,6 +744,21 @@
                 <li>Web Development</li>
                 <li>Content Creation</li>
             </ul>
+        </section>
+
+        <section id="demo">
+            <div class="demo-intro">
+                <h2>My Demos</h2>
+                <p>Explore selected website projects and see how my work looks in action.</p>
+            </div>
+            <div class="demo-grid">
+                <article class="demo-card">
+                    <span class="demo-number">01</span>
+                    <h3>Royal Taste Restaurant</h3>
+                    <p>A modern Pakistani restaurant website created as a website demo.</p>
+                    <a class="demo-link" href="https://adnan12345-a11y.github.io/Restaurant-demo/" target="_blank" rel="noopener noreferrer">View Demo -&gt;</a>
+                </article>
+            </div>
         </section>
 
         <section id="contact">
