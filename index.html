@@ -250,7 +250,51 @@
             padding-bottom: 100px;
         }
 
-        #contact > h2 { margin-top: 10px; }
+        .contact-intro { margin-top: 10px; }
+
+        .contact-intro h2 { margin: 0 0 14px; }
+
+        .contact-intro > p {
+            margin: 0 0 26px;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .contact-actions {
+            display: grid;
+            gap: 12px;
+        }
+
+        .contact-actions a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 48px;
+            padding: 11px 16px;
+            color: var(--teal-dark);
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease;
+        }
+
+        .contact-actions a::after {
+            content: "->";
+            color: var(--coral);
+            font-size: 1.1rem;
+        }
+
+        .contact-actions a:hover, .contact-actions a:focus-visible {
+            color: var(--white);
+            background: var(--teal);
+            border-color: var(--teal);
+            outline: none;
+            transform: translateX(4px);
+        }
+
+        .contact-actions a:hover::after, .contact-actions a:focus-visible::after { color: var(--white); }
 
         form {
             padding: 30px;
@@ -536,6 +580,7 @@
             #services ul, #contact { grid-template-columns: 1fr; }
             #services li { min-height: 135px; }
             #contact { gap: 24px; padding-top: 55px; }
+            .contact-intro { margin-top: 0; }
             form { padding: 22px; }
             .form-row { grid-template-columns: 1fr; gap: 12px; }
             .form-row p { margin-bottom: 16px; }
@@ -587,7 +632,14 @@
         </section>
 
         <section id="contact">
-            <h2>Start Your Project</h2>
+            <div class="contact-intro">
+                <h2>Need a Website?</h2>
+                <p>Let's build your website. Contact me directly or share your project details through the form.</p>
+                <div class="contact-actions" aria-label="Direct contact options">
+                    <a href="https://wa.me/923034048308?text=Hello%20Adnan%2C%20I%20would%20like%20to%20discuss%20a%20website%20project%20with%20you." target="_blank" rel="noopener" aria-label="Chat with Adnan on WhatsApp">WhatsApp Me</a>
+                    <a id="callMeLink" href="tel:+923034048308" target="_self">Call Me</a>
+                </div>
+            </div>
             <form action="https://formspree.io/f/xkjwdagw" method="post">
                 <div class="success-message"></div>
 
